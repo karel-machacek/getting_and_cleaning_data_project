@@ -45,12 +45,13 @@ data<-cbind(subject_all, y_all, X_all)
 
 # assign to data only columns containing strings mean or std
 library(dplyr)
-data<-names(select(data,contains("mean"), contains("std")))
+data<-select(data, contains("activity"), contains("subject"), 
+             contains("mean"), contains("std"))
 
 # group data by activity nd subject and compute mean
 
-tidy<-aggregate(. ~ data$activity + data$subject, data[c(-1, -2)], mean)
+tidy<-aggregate(. ~ data$activity + data$subject, data[c(-1, -2)], mean, na.rm=TRUE)
 
 # write tidy dataset into tidy.txt file
 write.csv(tidy, "../tidy.csv")
-write.table(tidy, "../tidy.txt", row.name=FALSE)
+write.table(tidy,"../tidy.txt", row.names=FALSE)
