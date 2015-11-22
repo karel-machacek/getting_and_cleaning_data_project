@@ -5,3 +5,5 @@ Follow steps to set up and run the scripts
 * cd Coursera
 * run git init
 * run git remote add origin https://github.com/karel-machacek/getting_and_cleaning_data_project.git
+* open run_analysis.R file and change working directory on line 6 according to your environment
+* open run_analysis.R in R (or R studio) and run it
