@@ -47,7 +47,8 @@ data<-cbind(subject_all, y_all, X_all)
 library(dplyr)
 data<-names(select(data,contains("mean"), contains("std")))
 
-# grop data by activity nd subject and compute mean
+# group data by activity nd subject and compute mean
+
 tidy<-aggregate(. ~ data$activity + data$subject, data[c(-1, -2)], mean)
 
 # write tidy dataset into tidy.txt file
